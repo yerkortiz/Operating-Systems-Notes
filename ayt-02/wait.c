@@ -7,15 +7,14 @@
 #include <stdio.h>
 int main(void) 
 { 
+    char *const cmd[] = {"ps"};
     pid_t child_pid = fork(); 
     if (child_pid > 0){
-        system("ps -l");
+        execvp("/bin/ps", cmd);
+        sleep(1);
         wait(NULL);
-        //kill(pid, SIGKILL); 
-        printf("ZOMBIE EXITERMINADO\n");
-        system("ps -l");
+        execvp("/bin/ps", cmd);
     } else {
-        printf("ZOMBIE ID %d\n", getpid());
         exit(0);
     }
     return 0; 
