@@ -8,16 +8,12 @@ int main(void)
 {
     pid_t pid = fork();
     int status;
-    int value = 1;
-    if(pid < 0) {
-        perror("FORK ERROR\n");
-        exit(1);
-    } else if(pid == 0) {
-        value += value;
-        printf("OWN ID %d | PARENT ID %d | OWN VALUE %d\n", getpid(), getppid(), value);
-        exit(0);
-    } else {
-        printf("OWN ID %d | PARENT ID %d | OWN VALUE %d\n", getpid(), getppid(), value);
+    if(pid < 0) // aqui hubo un error
+        return 0;
+    else if(pid == 0) // aqui estamos en el hijo
+        printf("OWN ID %d | PARENT ID %d\n", getpid(), getppid());
+    else { //aqui estamos en el padre
+        printf("OWN ID %d | PARENT ID %d\n", getpid(), getppid());
         wait(&status);
     }
     return 0;

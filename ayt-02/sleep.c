@@ -1,10 +1,9 @@
 #include<stdio.h> 
 #include <sys/types.h> 
 #include <unistd.h> 
-  
 int main() 
 {    
-    char *const cmd[] = {"ps"};
+    char *const cmd[] = {"ps, -l"};
     int pid = fork(); 
     if (pid > 0) {
         execvp("/bin/ps", cmd);

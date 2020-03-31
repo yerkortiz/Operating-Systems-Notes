@@ -3,6 +3,6 @@
 
 int main(void)
 {
-    execl("./hola", "NOMBRE");
+    execl("./hola", "NULL");
     return 0;
 }

@@ -1,6 +1,3 @@
-/*
- * DAEMON CREATION
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -21,14 +18,13 @@ int main(int argc, char* argv[])
     sid = setsid(); // se convierte en el root de un grupo de procesos.
     if(sid < 0) 
         exit(EXIT_FAILURE);
-    //chdir("/");
     close(STDIN_FILENO); 
     close(STDOUT_FILENO); 
     close(STDERR_FILENO);
     fp = fopen ("Log.txt", "w+");
-    for(int i = 0; i < 100; ++i) {
+    for(int i = 0; i < 1000; ++i) {
         sleep(1);
-        fprintf(fp, "%d\n", getpid());
+        fprintf(fp, "%d %d\n", getpid(), i);
         fflush(fp);
     }
     fprintf(fp, "DAEMON TERMINATED\n");
