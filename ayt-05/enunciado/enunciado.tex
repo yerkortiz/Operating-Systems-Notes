@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{epigraph}
+\usepackage{listings}
+\usepackage[spanish]{babel}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{fontspec}
+\usepackage[letterpaper, total={7in, 10in}]{geometry}
+%\setmainfont{Neo Euler} % IBM 3270, TERMINESS TTF
+\title{\centerline{\textbf{ALGORITMOS: AYUDANTÍA 6}}}
+\author{\centerline{Ayudante: Yerko Ortiz}}
+\date{}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color
+  basicstyle=\footnotesize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  keywordstyle=\color{blue},       % keyword style
+  stringstyle=\color{mymauve},     % string literal style
+  showstringspaces=false
+}
+\begin{document}
+
+\maketitle
+\begin{flushleft}
+\epigraph{\textit{"Mutable state is the root of all evil."}}{Varias personas.}
+\textbf{Objetivo de la ayudantía: Reforzar conceptos referentes a algoritmos de ordenamiento.}
+\vspace{1cm}
+\hrule
+\vspace{1cm}
+\section*{\centerline{Condición de carrera}}
+Diseñe e implemente un programa en C que genere una condición de carrera con threads,
+en el programa usted debe crear 2 * N threads, los primeros N threads le suman 1 a un
+número K, y las otra mitad deben restarle 1 a el número K. Logicamente lo que hace
+su programa es sumarle N a K y restarle N a (N + K), por lo que el resultado del
+programa debiera ser K, ahora bien el objetivo del problema es generar condiciones
+de carrera de forma que el programa entregue un resultado incorrecto, 
+para así ver de manera experimental la importancia de sincronizar.
+\vspace{1cm}
+\hrule 
+\vspace{1cm}
+\section{\centerline{Mutex}}
+Usando el mismo programa que suma N y resta N, elimine la condición de carrera
+usando un mutex, de forma que ahora si el programa de el resultado correcto.
+\vspace{1cm}
+\hrule
+\vspace{1cm}
+\centerline{\textbf{Gracias por su atención!}}
+\end{flushleft}
+\end{document}
