@@ -10,37 +10,34 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <stdlib.h>
-#define EXIT_PROGRAM return 0
-long long n = 5;
-int numIters;
-//pthread_mutex_t mutex;
-void *plusOne(void *arg);
-void *minusOne(void *arg);
 
+long long k = 5; // k + N - N
+int numIters; // N
+void *plusOne(void *arg); // sumar 1
+void *minusOne(void *arg); // restar 1
 int main(int argc, char *argv[])
 {
-    pthread_t pid, mid;
-    numIters = atoi(argv[1]);
-    //pthread_mutex_init(&mutex, NULL);
+    pthread_t pid, mid; // declaramos los threads
+    numIters = atoi(argv[1]); // entrada via linea de comandos
     printf("MAIN STARTED\n");
-    pthread_create(&pid, NULL, &plusOne, NULL);
-    pthread_create(&mid, NULL, &minusOne, NULL);
-    pthread_join(pid, NULL);
-    pthread_join(mid, NULL);
-    printf("N = %lld", n);
-    EXIT_PROGRAM;
+    pthread_create(&pid, NULL, &plusOne, NULL); // crear thread
+    pthread_create(&mid, NULL, &minusOne, NULL); // crear thread
+    pthread_join(pid, NULL); // ejecutar thread
+    pthread_join(mid, NULL); // ejecutar thread
+    printf("N = %lld", k);
+    return 0;
 }
 void *plusOne(void *arg)
 {
-    for(int i = 0; i < numIters; ++i, ++n)
-        ;
-    printf("%lld\n", n);
-    return &n;
+    for(int i = 0; i < numIters; ++i)
+        ++k;
+    //printf("%lld\n", k);
+    return NULL;
 }
 void *minusOne(void *arg)
 {
-    for(int i = 0; i < numIters; ++i, --n)
-        ;
-    printf("%lld\n", n);
-    return &n;
+    for(int i = 0; i < numIters; ++i)
+        --k;
+    //printf("%lld\n", k);
+    return NULL;
 }
