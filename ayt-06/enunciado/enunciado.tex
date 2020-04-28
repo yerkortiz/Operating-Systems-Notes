@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{epigraph}
+\usepackage{listings}
+\usepackage[spanish]{babel}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{tikz}
+%\usepackage{fontspec}
+\usepackage[letterpaper, total={7in, 10in}]{geometry}
+%\setmainfont{Neo Euler} % IBM 3270, TERMINESS TTF
+\title{\centerline{\textbf{SISTEMAS OPERATIVOS: AYUDANTÍA 6}}}
+\author{\centerline{Ayudante: Yerko Ortiz}}
+\date{}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color
+  basicstyle=\footnotesize,        % size of fonts used for the code
+  breaklines=true,                 % automatic line breaking only at whitespace
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  keywordstyle=\color{blue},       % keyword style
+  stringstyle=\color{mymauve},     % string literal style
+  showstringspaces=false
+}
+\begin{document}
+\maketitle
+\begin{flushleft}
+\textbf{Objetivo de la ayudantía: Reforzar conceptos referentes a mecanismos de sincronización.}
+\vspace{1cm}
+\hrule
+\vspace{1cm}
+\section*{\centerline{Productor-Consumidor}}
+Un proceso productor genera números enteros(pueden ser objetos o cualquier tipo de dato) y los almacena en un buffer. Existe un proceso consumidor que recolecta lo que el proceso consumidor produce, el buffer puede contener un máximo de N elementos. 
+Diseñe e implemente un programa en C que permita la ejecución concurrente de ambos procesos, usando algún mecanismo de sincronización visto en clases.
+\section*{\centerline{Construyendo moleculas de agua}}
+Existen dos tipos de thread, los de oxígeno y los de hidrógeno. Con el fin de
+usar estos threads para ensamblar moleculas de agua, es necesario crear una barrera
+de forma que cada thread espera hasta que una molecula de agua esté lista para luego
+continuar creando moleculas. \newline
+\begin{itemize}
+\item Si un oxígeno llega a la barrera, entonces debe esperar a que lleguen dos threads
+de hidrógeno. 
+\item Si un hidrógeno llega a la barrera, entonces este ha de esperar a que llegue un thread
+    de hidrógeno y uno de oxígeno.
+\end{itemize}
+Diseñe e implemente un programa en C que pueda manejar la concurrencia de threads de hidrógeno y oxígeno, para crear moleculas de agua.
+\centerline{\textbf{Gracias por su atención!}}
+\end{flushleft}
+\end{document}
+
+
+
